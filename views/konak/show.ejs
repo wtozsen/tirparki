@@ -1,0 +1,42 @@
+<% include ../partials/header %>
+
+<div class="baslik-sol">
+  <h1><%= konak.dorse %> Dorse Detayı</h1>
+</div>
+<div class="baslik-sag">
+  <a href="/dashboard/new">Yeni Kayıt</a>
+</div>
+
+<div class="giris-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Getiren Çekici</th>
+            <th>Götüren Çekici</th>
+            <th>Dorse Plakası</th>
+            <th>Firma</th>
+            <th>Malın Cinsi</th>
+            <th>Giriş Tarihi</th>
+            <th>Çıkış Tarihi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= konak.get_cekici %></td>
+            <td><%= konak.got_cekici %></td>
+            <td><%= konak.dorse %></td>
+            <td><%= konak.firma %></td>
+            <td><%= konak.mal %></td>
+            <td><%= moment(konak.giris).format("DD.MM.YYYY / HH:mm") %></td>
+            <td><%= moment(konak.cikis).format("DD.MM.YYYY / HH:mm") %></td>
+            <td><a href="/dashboard/<%= konak._id %>">Düzenle</a></td>
+            <td>
+              <form action="/dashboard/<%= konak._id %>?_method=DELETE" method="POST">
+                <button>Sil</button>
+              </form>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+<% include ../partials/footer %>

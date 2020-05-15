@@ -1,0 +1,22 @@
+<% include partials/head %>
+<link rel="stylesheet" type="text/css" href="/stylesheets/signin.css">
+
+<form class="form-signin text-center" action="/register" method="POST">
+    <h1 class="h3 mb-3 font-weight-normal">Yeni Kullanıcı</h1>
+    
+    <label for="inputfirstname" class="sr-only">Adınız</label>
+    <input type="text" id="inputfirstname" name="firstName" class="form-control" placeholder="Adınız" required autofocus>
+    
+    <label for="inputlastname" class="sr-only">Soyadınız</label>
+    <input type="text" id="inputlastname" name="lastName" class="form-control" placeholder="Soyadınız" required autofocus>
+    
+    <label for="inputusername" class="sr-only">Kullanıcı Adınız</label>
+    <input type="text" id="inputusername" name="username" class="form-control" placeholder="Kullanıcı Adı" required autofocus>
+    
+    <label for="inputPassword" class="sr-only">Şifreniz</label>
+    <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Şifreniz" required>
+    
+    <button class="btn btn-lg btn-danger btn-block" type="submit">Kaydol</button>
+</form>
+
+<% include partials/foot %>

@@ -1,0 +1,49 @@
+<% include ../partials/header %>
+<link rel="stylesheet" type="text/css" href="/stylesheets/edit.css">
+
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Kayıt Düzenle</h1>
+    </div>
+    
+    <form action="/dashboard/<%= konak._id %>?_method=PUT" method="POST">
+        <div class="form-group row">
+            <label class="col-sm-3 col-form-label"><strong>Dorse Plakası</strong></label>
+            <div class="col-sm-3">
+                <input type="text" class="form-control" name="konak[dorse]" placeholder="Dorse Plakası" value="<%= konak.dorse %>" required>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 col-form-label"><strong>Getiren Çekici Plakası</strong></label>
+            <div class="col-sm-3">
+                <input type="text" class="form-control" name="konak[get_cekici]" value="<%= konak.get_cekici %>" placeholder="Getiren Çekici Plakası">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 col-form-label"><strong>Firma</strong></label>
+            <div class="col-sm-3">
+                <input type="text" class="form-control" name="konak[firma]" placeholder="Firma" value="<%= konak.firma %>" required>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 col-form-label"><strong>Malın Cinsi</strong></label>
+            <div class="col-sm-3">
+                <input type="text" class="form-control" name="konak[mal]" placeholder="Malın Cinsi" value="<%= konak.mal %>" required>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 col-form-label"><strong>Geliş Tarihi</strong></label>
+            <div class="col-sm-3">
+                <input type="datetime-local" class="form-control" name="konak[giris]" required>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 col-form-label"></label>
+            <div class="col-sm-3">
+                <p><%= moment(konak.giris).format("DD.MM.YYYY / HH:mm") %></p>
+            </div>
+        </div>
+        <input type="submit" role="button" class="btn btn-danger mt-3" value="Gönder">
+    </form>
+
+<% include ../partials/footer %>

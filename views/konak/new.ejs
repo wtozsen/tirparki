@@ -1,0 +1,40 @@
+<% include ../partials/header %>
+<link rel="stylesheet" type="text/css" href="/stylesheets/new.css">
+
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Yeni Kayıt</h1>
+    </div>
+    <% if(error && error.length>0) {%>
+    <div class="alert alert-danger" role="alert"><%= error %></div>
+    <% } %>
+
+    <form action="/dashboard" method="POST">
+        <div class="form-group row">
+            <label class="col-sm-3 col-form-label">Getiren Çekici Plakası</label>
+            <div class="col-sm-3">
+                <input type="text" class="form-control" name="konak[get_cekici]" placeholder="Çekici Plakası">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 col-form-label">Dorse Plakası</label>
+            <div class="col-sm-3">
+                <input type="text" class="form-control" name="konak[dorse]" placeholder="Dorse Plakası" required>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 col-form-label">Firma</label>
+            <div class="col-sm-3">
+                <input type="text" class="form-control" name="konak[firma]" placeholder="Firma">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 col-form-label">Malın Cinsi</label>
+            <div class="col-sm-3">
+                <input type="text" class="form-control" name="konak[mal]" placeholder="Malın Cinsi">
+            </div>
+        </div>
+        <input type="submit" role="button" class="btn btn-danger mt-3" value="Gönder">
+    </form>
+    
+    <% include ../partials/footer %>

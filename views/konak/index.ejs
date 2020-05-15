@@ -1,0 +1,50 @@
+<% include ../partials/header %>
+<link rel="stylesheet" href="../stylesheets/konak-index.css">
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">İçerideki Dorseler</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+      <div class="btn-group mr-2">
+        <a href="/dashboard/new" role="button" class="btn btn-outline-danger">Yeni Kayıt</a>
+      </div>
+    </div>
+  </div>
+  <h2 class="h4">İçerideki Dorse Sayısı: <span id="count"></span></h2>
+  <div class="table-responsive">
+    <table class="table table-striped table-sm table-hover" id="myTable">
+      <thead>
+        <tr>
+          <th>Getiren Çekici</th>
+          <th>Dorse Plakası</th>
+          <th>Firma</th>
+          <th>Malın Cinsi</th>
+          <th>Giriş Tarihi</th>
+          <th>Giriş Yapan</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% konak.forEach(function(konak){ %>
+          <tr>
+            <td><%= konak.get_cekici %></td>
+            <td><%= konak.dorse %></td>
+            <td><%= konak.firma %></td>
+            <td><%= konak.mal %></td>
+            <td><%= moment(konak.giris).format("DD.MM.YYYY - HH:mm") %></td>
+            <td><%= konak.user.firstName + " " + konak.user.lastName %></td>
+            <td><a href="/dashboard/<%= konak._id %>/exit" role="button" class="btn btn-sm btn-danger">Çıkış Yap</a></td>
+            <% if(currentUser && currentUser.isAdmin){ %>
+              <td><a href="/dashboard/<%= konak._id %>/edit" role="button" class="btn btn-sm btn-warning">Düzenle</a></td>
+              <td>
+                <form action="/dashboard/<%= konak._id %>?_method=DELETE" method="POST">
+                  <button class="btn btn-sm btn-secondary" onclick="return uyari()">Sil</button>
+                </form>
+                <% } %>
+              </td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+      <script type="text/javascript" src="javascript/konak-index.js"></script>
+      
+      <% include ../partials/footer %>

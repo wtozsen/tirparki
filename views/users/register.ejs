@@ -1,0 +1,24 @@
+<% include ../partials/header %>
+
+<link rel="stylesheet" type="text/css" href="/stylesheets/signin.css">
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Yeni Kullanıcı</h1>
+    </div>
+    <form class="form-signin text-center" action="/users/register" method="POST">
+        <label for="inputfirstname" class="sr-only">Adınız</label>
+        <input type="text" id="inputfirstname" name="firstName" class="form-control" placeholder="Adınız" required autofocus>
+        
+        <label for="inputlastname" class="sr-only">Soyadınız</label>
+        <input type="text" id="inputlastname" name="lastName" class="form-control" placeholder="Soyadınız" required autofocus>
+        
+        <label for="inputusername" class="sr-only">Kullanıcı Adınız</label>
+        <input type="text" id="inputusername" name="username" class="form-control" placeholder="Kullanıcı Adı" required autofocus>
+        
+        <label for="inputPassword" class="sr-only">Şifreniz</label>
+        <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Şifreniz" required>
+        
+        <button class="btn btn-lg btn-danger btn-block" type="submit">Kaydol</button>
+    </form>
+    
+    <% include ../partials/footer %>

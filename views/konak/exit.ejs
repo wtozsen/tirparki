@@ -1,0 +1,39 @@
+<% include ../partials/header %>
+<link rel="stylesheet" type="text/css" href="/stylesheets/new.css">
+
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Dorse Çıkış Yap</h1>
+    </div>
+    
+    <form action="/dashboard/<%= konak._id %>" method="POST">
+        <div class="form-group row">
+            <label class="col-sm-3 col-form-label"><strong>Götüren Çekici Plakası : </strong></label>
+            <div class="col-sm-3">
+                <input type="text" class="form-control" name="konak[got_cekici]" placeholder="Götüren Çekici Plakası">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-3">
+                <p><strong>Dorse Plakası : </strong><%= konak.dorse %></p>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-3">
+                <p><strong>Firma : </strong><%= konak.firma %></p>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-3">
+                <p><strong>Malın Cinsi : </strong><%= konak.mal %></p>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-4">
+                <p><strong>Geliş Zamanı : </strong><%= moment(konak.giris).format("DD.MM.YYYY / HH:mm") %></p>
+            </div>
+        </div>
+        <input type="submit" role="button" class="btn btn-danger mt-3" value="Gönder">
+    </form>
+
+<% include ../partials/footer %>
